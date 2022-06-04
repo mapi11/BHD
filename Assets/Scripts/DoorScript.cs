@@ -6,7 +6,7 @@ using TMPro;
 
 public class DoorScript : MonoBehaviour
 {
-    private GameObject Camera;
+    private GameObject CameraMove;
     public GameObject LoosePanel;
 
     [SerializeField] private GameObject PrefabRoom;
@@ -37,7 +37,7 @@ public class DoorScript : MonoBehaviour
 
     private void Start()
     {
-        Camera = GameObject.Find("Camera");
+        CameraMove = GameObject.Find("CameraMove");
 
         _globalScript = FindObjectOfType<GlobalScript>();
         _timerScript = FindObjectOfType<TimerScript>();
@@ -96,6 +96,11 @@ public class DoorScript : MonoBehaviour
 
     //}
 
+    void DestroyRoom()
+    {
+        Destroy(ActiveRoom);
+    }
+
     public void DoorClickLeft()                           //Left
     {
         if (DoorLeftIsDanger == false)
@@ -104,11 +109,12 @@ public class DoorScript : MonoBehaviour
 
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
-            Camera.transform.position = DoorLeft.transform.position;
+            CameraMove.transform.position = DoorLeft.transform.position;
 
             _globalScript.GlobaZ += 10;
 
-            Destroy(ActiveRoom);
+            //Destroy(ActiveRoom);
+            Invoke("DestroyRoom", 1.5f);
         }
         else if (DoorLeftIsDanger == true)
         {
@@ -126,11 +132,12 @@ public class DoorScript : MonoBehaviour
 
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
-            Camera.transform.position = DoorMid.transform.position;
+            CameraMove.transform.position = DoorMid.transform.position;
 
             _globalScript.GlobaZ += 10;
 
-            Destroy(ActiveRoom);
+            //Destroy(ActiveRoom);
+            Invoke("DestroyRoom", 1.5f);
         }
         else if (DoorMidIsDanger == true)
         {
@@ -148,11 +155,12 @@ public class DoorScript : MonoBehaviour
 
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
-            Camera.transform.position = DoorRight.transform.position;
+            CameraMove.transform.position = DoorRight.transform.position;
 
             _globalScript.GlobaZ += 10;
 
-            Destroy(ActiveRoom);
+            //Destroy(ActiveRoom);
+            Invoke("DestroyRoom", 1.5f);
         }
         else if (DoorRightIsDanger == true)
         {
