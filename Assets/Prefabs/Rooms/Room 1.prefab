@@ -3600,7 +3600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3465743693108080211, guid: eb4109f35a14f514d9846e457518fa5e, type: 3}
       propertyPath: m_Name
-      value: Office lamp (1)
+      value: Office lamp
       objectReference: {fileID: 0}
     - target: {fileID: 8537240104591739464, guid: eb4109f35a14f514d9846e457518fa5e, type: 3}
       propertyPath: m_RootOrder
