@@ -16,6 +16,7 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private GameObject DoorMid;
     [SerializeField] private GameObject DoorRight;
 
+    [SerializeField] private GameObject LockTapPanel;
 
     [SerializeField] private TextMeshProUGUI RoomText;
 
@@ -106,7 +107,7 @@ public class DoorScript : MonoBehaviour
         if (DoorLeftIsDanger == false)
         {
             Debug.Log("Left");
-
+            LockTapPanel.SetActive(true);
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
             CameraMove.transform.position = DoorLeft.transform.position;
@@ -129,7 +130,7 @@ public class DoorScript : MonoBehaviour
         if (DoorMidIsDanger == false)
         {
             Debug.Log("Mid");
-
+            LockTapPanel.SetActive(true);
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
             CameraMove.transform.position = DoorMid.transform.position;
@@ -152,7 +153,7 @@ public class DoorScript : MonoBehaviour
         if (DoorRightIsDanger == false)
         {
             Debug.Log("Right");
-
+            LockTapPanel.SetActive(true);
 
             Instantiate(PrefabRoom/*[_int]*/, new Vector3(0, 0, _globalScript.GlobaZ), Quaternion.identity);
             CameraMove.transform.position = DoorRight.transform.position;
